@@ -37,7 +37,7 @@ final class RGBViewController: UIViewController {
         hexLabel.text = hexStringFromColor()
     }
     
-    override func viewDidLayoutSubviews() {
+    override func viewWillLayoutSubviews() {
         colorView.layer.cornerRadius = colorView.frame.height / 10
     }
     
