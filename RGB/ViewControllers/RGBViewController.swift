@@ -14,7 +14,7 @@ final class RGBViewController: UIViewController {
     @IBOutlet private var labels: [UILabel]!
     @IBOutlet private var sliders: [UISlider]!
     @IBOutlet private var textFields: [UITextField]!
-
+    
     // MARK: - Public Properties
     var mainColor: UIColor!
     
@@ -28,10 +28,6 @@ final class RGBViewController: UIViewController {
             updateUI(with: slider)
         }
         changeViewColor()
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
     }
     
     // MARK: - IBAction Methods
@@ -63,6 +59,10 @@ final class RGBViewController: UIViewController {
 // MARK: - UITextFieldDelegate
 extension RGBViewController: UITextFieldDelegate {
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        setupDoneButton(for: textField)
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         let value = Float(textField.text ?? "0") ?? 0
         textField.text = value > 1 ? "1.00" : String(format: "%.2f", value)
@@ -74,3 +74,37 @@ extension RGBViewController: UITextFieldDelegate {
     }
 }
 
+// MARK: - Work with Keyboard
+extension RGBViewController {
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        closeKeyboard()
+    }
+    
+    private func setupDoneButton(for textField: UITextField) {
+        let keyboardView = UIView(
+            frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 50)
+        )
+        let doneButton = UIButton(
+            frame: CGRect(x: view.frame.width - 80, y: 0, width: 80, height: 50)
+        )
+        
+        doneButton.setTitle("Done", for: .normal)
+        doneButton.setTitleColor(.systemBlue, for: .normal)
+        doneButton.setTitleColor(.gray, for: .highlighted)
+        doneButton.addTarget(
+            self,
+            action: #selector(closeKeyboard),
+            for: .touchUpInside
+        )
+        
+        keyboardView.backgroundColor = .systemGray3
+        keyboardView.addSubview(doneButton)
+        
+        textField.inputAccessoryView = keyboardView
+    }
+    
+    @objc private func closeKeyboard() {
+        view.endEditing(true)
+    }
+}
