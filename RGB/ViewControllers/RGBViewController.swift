@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RGBViewController.swift
 //  RGB
 //
 //  Created by M I C H A E L on 23.03.2023.
@@ -11,47 +11,23 @@ final class RGBViewController: UIViewController {
     
     // MARK: - IBOutlets
     @IBOutlet private var colorView: UIView!
-    
-    @IBOutlet private var redLabel: UILabel!
-    @IBOutlet private var greenLabel: UILabel!
-    @IBOutlet private var blueLabel: UILabel!
-    
-    @IBOutlet private var redSlider: UISlider!
-    @IBOutlet private var greenSlider: UISlider!
-    @IBOutlet private var blueSlider: UISlider!
-    
-    @IBOutlet private var redTextField: UITextField!
-    @IBOutlet private var greenTextField: UITextField!
-    @IBOutlet private var blueTextField: UITextField!
-    
-    @IBOutlet private var hexLabel: UILabel!
-    
+    @IBOutlet private var labels: [UILabel]!
+    @IBOutlet private var sliders: [UISlider]!
+    @IBOutlet private var textFields: [UITextField]!
+
     // MARK: - Public Properties
     var mainColor: UIColor!
     
     // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        let colors = mainColor.cgColor.components ?? []
         
-        redTextField.delegate = self
-        greenTextField.delegate = self
-        blueTextField.delegate = self
-        
-        redSlider.value = Float(mainColor.cgColor.components?[0] ?? 0)
-        greenSlider.value = Float(mainColor.cgColor.components?[1] ?? 0)
-        blueSlider.value = Float(mainColor.cgColor.components?[2] ?? 0)
-    
+        for (slider, color) in zip(sliders, colors) {
+            slider.value = Float(color)
+            updateUI(with: slider)
+        }
         changeViewColor()
-        
-        redLabel.text = string(from: redSlider)
-        greenLabel.text = string(from: greenSlider)
-        blueLabel.text = string(from: blueSlider)
-        
-        redTextField.text = string(from: redSlider)
-        greenTextField.text = string(from: greenSlider)
-        blueTextField.text = string(from: blueSlider)
-        
-        hexLabel.text = hexString()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -61,19 +37,7 @@ final class RGBViewController: UIViewController {
     // MARK: - IBAction Methods
     @IBAction func sliderAction(_ sender: UISlider) {
         changeViewColor()
-        hexLabel.text = hexString()
-        
-        switch sender {
-        case redSlider:
-            redLabel.text = string(from: redSlider)
-            redTextField.text = string(from: redSlider)
-        case greenSlider:
-            greenLabel.text = string(from: greenSlider)
-            greenTextField.text = string(from: greenSlider)
-        default:
-            blueLabel.text = string(from: blueSlider)
-            blueTextField.text = string(from: blueSlider)
-        }
+        updateUI(with: sender)
     }
     
     // MARK: - Private Methods
@@ -83,54 +47,30 @@ final class RGBViewController: UIViewController {
     
     private func changeViewColor() {
         colorView.backgroundColor = UIColor(
-            red: CGFloat(redSlider.value),
-            green: CGFloat(greenSlider.value),
-            blue: CGFloat(blueSlider.value),
+            red: CGFloat(sliders[0].value),
+            green: CGFloat(sliders[1].value),
+            blue: CGFloat(sliders[2].value),
             alpha: 1
         )
     }
     
-    private func hexString() -> String {
-        let hexString = String(
-            format: "#%02lX%02lX%02lX",
-            lroundf(Float(redSlider.value * 255)),
-            lroundf(Float(greenSlider.value * 255)),
-            lroundf(Float(blueSlider.value * 255))
-        )
-        
-        return "Hex Color: \(hexString)"
+    private func updateUI(with sender: UISlider) {
+        labels[sender.tag].text = string(from: sender)
+        textFields[sender.tag].text = string(from: sender)
     }
 }
 
-
+// MARK: - UITextFieldDelegate
 extension RGBViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        var currentValue = Float(textField.text ?? "0") ?? 0
+        let value = Float(textField.text ?? "0") ?? 0
+        textField.text = value > 1 ? "1.00" : String(format: "%.2f", value)
         
-        switch currentValue {
-        case 0:
-            textField.text = "0.00"
-        case 1...:
-            textField.text = "1.00"
-            currentValue = 1
-        default:
-            textField.text = String(format: "%.2f", currentValue)
-        }
-        
-        switch textField {
-        case redTextField:
-            redSlider.setValue(currentValue, animated: true)
-            redLabel.text = string(from: redSlider)
-        case greenTextField:
-            greenSlider.setValue(currentValue, animated: true)
-            greenLabel.text = string(from: greenSlider)
-        default:
-            blueSlider.setValue(currentValue, animated: true)
-            blueLabel.text = string(from: greenSlider)
-        }
+        sliders[textField.tag].setValue(value, animated: true)
+        labels[textField.tag].text = string(from: sliders[textField.tag])
         
         changeViewColor()
-        hexLabel.text = hexString()
     }
 }
+

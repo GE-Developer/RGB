@@ -54,16 +54,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FHa-r7-RPj">
-                                <rect key="frame" x="16" y="20" width="288" height="170.5"/>
+                                <rect key="frame" x="16" y="20" width="288" height="130.5"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Gdl-5a-9ek">
-                                <rect key="frame" x="16" y="276.5" width="288" height="142"/>
+                                <rect key="frame" x="16" y="170.5" width="288" height="142"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="NkH-TY-Tzf">
                                         <rect key="frame" x="0.0" y="0.0" width="55" height="142"/>
@@ -100,13 +103,13 @@
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.50" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drg-GL-PeY">
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.50" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drg-GL-PeY">
                                                 <rect key="frame" x="0.0" y="54" width="35" height="34"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.50" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mA4-UV-ptE">
+                                            <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.50" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mA4-UV-ptE">
                                                 <rect key="frame" x="0.0" y="108" width="35" height="34"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -129,7 +132,7 @@
                                                     <action selector="sliderAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="tLy-5d-00N"/>
                                                 </connections>
                                             </slider>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="IXk-Hl-dIY">
+                                            <slider opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="IXk-Hl-dIY">
                                                 <rect key="frame" x="-2" y="54" width="122" height="35"/>
                                                 <color key="minimumTrackTintColor" systemColor="systemGreenColor"/>
                                                 <color key="maximumTrackTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -138,7 +141,7 @@
                                                     <action selector="sliderAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="Evg-6b-y45"/>
                                                 </connections>
                                             </slider>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="rAp-hT-eAg">
+                                            <slider opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="rAp-hT-eAg">
                                                 <rect key="frame" x="-2" y="108" width="122" height="35"/>
                                                 <color key="minimumTrackTintColor" systemColor="systemBlueColor"/>
                                                 <color key="maximumTrackTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -158,20 +161,29 @@
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Jcr-Kk-W93"/>
+                                                </connections>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.50" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mfn-EE-RWS">
+                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.50" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mfn-EE-RWS">
                                                 <rect key="frame" x="0.0" y="54" width="50" height="34"/>
                                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="MxJ-0i-jFZ"/>
+                                                </connections>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.50" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Leo-fe-grW">
+                                            <textField opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.50" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Leo-fe-grW">
                                                 <rect key="frame" x="0.0" y="108" width="50" height="34"/>
                                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="zTR-Ea-Elu"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -180,40 +192,31 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HEX" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bka-Rf-hJq">
-                                <rect key="frame" x="140" y="220.5" width="40" height="26"/>
-                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="22"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.19285587727090914" green="0.19476534140230428" blue="0.19476534140230428" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="bka-Rf-hJq" firstAttribute="top" secondItem="FHa-r7-RPj" secondAttribute="bottom" constant="30" id="8Yh-0g-WUk"/>
-                            <constraint firstItem="bka-Rf-hJq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HG9-To-aZy"/>
                             <constraint firstAttribute="trailing" secondItem="Gdl-5a-9ek" secondAttribute="trailing" constant="16" id="MqT-od-8kd"/>
-                            <constraint firstItem="FHa-r7-RPj" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" id="NUC-hb-yMP"/>
+                            <constraint firstItem="FHa-r7-RPj" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.23" id="NUC-hb-yMP"/>
                             <constraint firstItem="FHa-r7-RPj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="O89-Lq-ilT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FHa-r7-RPj" secondAttribute="trailing" constant="16" id="XLK-cP-amh"/>
-                            <constraint firstItem="Gdl-5a-9ek" firstAttribute="top" secondItem="bka-Rf-hJq" secondAttribute="bottom" constant="30" id="afr-Cs-krF"/>
                             <constraint firstItem="Gdl-5a-9ek" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="bUb-X2-1qf"/>
                             <constraint firstItem="FHa-r7-RPj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="dnD-yr-l2p"/>
+                            <constraint firstItem="Gdl-5a-9ek" firstAttribute="top" secondItem="FHa-r7-RPj" secondAttribute="bottom" constant="20" id="yF2-M0-l8l"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QOK-z6-6Ur"/>
                     <connections>
-                        <outlet property="blueLabel" destination="mA4-UV-ptE" id="yFo-S9-aiL"/>
-                        <outlet property="blueSlider" destination="rAp-hT-eAg" id="4CL-bj-zoB"/>
-                        <outlet property="blueTextField" destination="Leo-fe-grW" id="Z3t-uM-sgC"/>
-                        <outlet property="colorView" destination="FHa-r7-RPj" id="zWc-Dy-5UK"/>
-                        <outlet property="greenLabel" destination="drg-GL-PeY" id="2rw-VL-Gag"/>
-                        <outlet property="greenSlider" destination="IXk-Hl-dIY" id="XCU-1f-FVO"/>
-                        <outlet property="greenTextField" destination="mfn-EE-RWS" id="5bi-kH-Ycn"/>
-                        <outlet property="hexLabel" destination="bka-Rf-hJq" id="wkj-w6-0Hi"/>
-                        <outlet property="redLabel" destination="QXX-0p-tCC" id="j8n-RI-Xwd"/>
-                        <outlet property="redSlider" destination="gQo-sE-sHH" id="dMR-nv-Gy8"/>
-                        <outlet property="redTextField" destination="SLj-2p-iGG" id="sn4-NL-Mt1"/>
+                        <outlet property="colorView" destination="FHa-r7-RPj" id="g4o-kD-mMz"/>
+                        <outletCollection property="labels" destination="QXX-0p-tCC" collectionClass="NSMutableArray" id="f17-3B-AWW"/>
+                        <outletCollection property="labels" destination="drg-GL-PeY" collectionClass="NSMutableArray" id="mCO-FA-Pk9"/>
+                        <outletCollection property="labels" destination="mA4-UV-ptE" collectionClass="NSMutableArray" id="DRz-qo-9iS"/>
+                        <outletCollection property="sliders" destination="gQo-sE-sHH" collectionClass="NSMutableArray" id="CnI-JE-aFJ"/>
+                        <outletCollection property="sliders" destination="IXk-Hl-dIY" collectionClass="NSMutableArray" id="VoO-G4-iMF"/>
+                        <outletCollection property="sliders" destination="rAp-hT-eAg" collectionClass="NSMutableArray" id="7OU-Hl-O1Y"/>
+                        <outletCollection property="textFields" destination="SLj-2p-iGG" collectionClass="NSMutableArray" id="4lK-EY-dkO"/>
+                        <outletCollection property="textFields" destination="mfn-EE-RWS" collectionClass="NSMutableArray" id="oaL-ef-vqe"/>
+                        <outletCollection property="textFields" destination="Leo-fe-grW" collectionClass="NSMutableArray" id="kIn-DJ-L7d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
