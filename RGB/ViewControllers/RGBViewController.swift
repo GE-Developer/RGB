@@ -17,6 +17,7 @@ final class RGBViewController: UIViewController {
     
     // MARK: - Public Properties
     var mainColor: UIColor!
+    var delegate: RGBViewControllerDelegate!
     
     // MARK: - Override Methods
     override func viewDidLoad() {
@@ -34,6 +35,13 @@ final class RGBViewController: UIViewController {
     @IBAction func sliderAction(_ sender: UISlider) {
         changeViewColor()
         updateUI(with: sender)
+    }
+    
+    @IBAction func doneAction() {
+        if let color = colorView.backgroundColor {
+            delegate.updateColor(color: color)
+        }
+        dismiss(animated: true)
     }
     
     // MARK: - Private Methods

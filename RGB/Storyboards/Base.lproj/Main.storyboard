@@ -202,6 +202,9 @@
                                 <state key="normal" title="Done">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="doneAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="2l0-02-fCM"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
