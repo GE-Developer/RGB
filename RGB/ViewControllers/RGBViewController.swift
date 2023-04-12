@@ -11,9 +11,18 @@ final class RGBViewController: UIViewController {
     
     // MARK: - IBOutlets
     @IBOutlet private var colorView: UIView!
-    @IBOutlet private var labels: [UILabel]!
-    @IBOutlet private var sliders: [UISlider]!
-    @IBOutlet private var textFields: [UITextField]!
+ 
+    @IBOutlet private var redLabel: UILabel!
+    @IBOutlet private var greenLabel: UILabel!
+    @IBOutlet private var blueLabel: UILabel!
+
+    @IBOutlet private var redSlider: UISlider!
+    @IBOutlet private var greenSlider: UISlider!
+    @IBOutlet private var blueSlider: UISlider!
+    
+    @IBOutlet private var redTextField: UITextField!
+    @IBOutlet private var greenTextField: UITextField!
+    @IBOutlet private var blueTextField: UITextField!
     
     // MARK: - Public Properties
     var mainColor: UIColor!
@@ -22,19 +31,37 @@ final class RGBViewController: UIViewController {
     // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        let colors = mainColor.cgColor.components ?? []
         
-        for (slider, color) in zip(sliders, colors) {
-            slider.value = Float(color)
-            updateUI(with: slider)
-        }
+        redSlider.value = Float(CIColor(color: mainColor).red)
+        greenSlider.value = Float(CIColor(color: mainColor).green)
+        blueSlider.value = Float(CIColor(color: mainColor).blue)
+
+        redLabel.text = string(from: redSlider)
+        greenLabel.text = string(from: greenSlider)
+        blueLabel.text = string(from: blueSlider)
+        
+        redTextField.text = string(from: redSlider)
+        greenTextField.text = string(from: greenSlider)
+        blueTextField.text = string(from: blueSlider)
+        
         changeViewColor()
     }
     
     // MARK: - IBAction Methods
     @IBAction func sliderAction(_ sender: UISlider) {
         changeViewColor()
-        updateUI(with: sender)
+        
+        switch sender {
+        case redSlider:
+            redLabel.text = string(from: redSlider)
+            redTextField.text = string(from: redSlider)
+        case greenSlider:
+            greenLabel.text = string(from: greenSlider)
+            greenTextField.text = string(from: greenSlider)
+        default:
+            blueLabel.text = string(from: blueSlider)
+            blueTextField.text = string(from: blueSlider)
+        }
     }
     
     @IBAction func doneAction() {
@@ -51,16 +78,11 @@ final class RGBViewController: UIViewController {
     
     private func changeViewColor() {
         colorView.backgroundColor = UIColor(
-            red: CGFloat(sliders[0].value),
-            green: CGFloat(sliders[1].value),
-            blue: CGFloat(sliders[2].value),
+            red: CGFloat(redSlider.value),
+            green: CGFloat(greenSlider.value),
+            blue: CGFloat(blueSlider.value),
             alpha: 1
         )
-    }
-    
-    private func updateUI(with sender: UISlider) {
-        labels[sender.tag].text = string(from: sender)
-        textFields[sender.tag].text = string(from: sender)
     }
 }
 
@@ -75,9 +97,17 @@ extension RGBViewController: UITextFieldDelegate {
         let value = Float(textField.text ?? "0") ?? 0
         textField.text = value > 1 ? "1.00" : String(format: "%.2f", value)
         
-        sliders[textField.tag].setValue(value, animated: true)
-        labels[textField.tag].text = string(from: sliders[textField.tag])
-        
+        switch textField {
+        case redTextField:
+            redSlider.value = value
+            redLabel.text = string(from: redSlider)
+        case greenTextField:
+            greenSlider.value = value
+            greenLabel.text = string(from: greenSlider)
+        default:
+            blueSlider.value = value
+            blueLabel.text = string(from: blueSlider)
+        }
         changeViewColor()
     }
 }

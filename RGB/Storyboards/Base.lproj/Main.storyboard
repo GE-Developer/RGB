@@ -103,13 +103,13 @@
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.50" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drg-GL-PeY">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.50" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drg-GL-PeY">
                                                 <rect key="frame" x="0.0" y="54" width="35" height="34"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.50" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mA4-UV-ptE">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.50" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mA4-UV-ptE">
                                                 <rect key="frame" x="0.0" y="108" width="35" height="34"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -132,7 +132,7 @@
                                                     <action selector="sliderAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="tLy-5d-00N"/>
                                                 </connections>
                                             </slider>
-                                            <slider opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="IXk-Hl-dIY">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="IXk-Hl-dIY">
                                                 <rect key="frame" x="-2" y="54" width="122" height="35"/>
                                                 <color key="minimumTrackTintColor" systemColor="systemGreenColor"/>
                                                 <color key="maximumTrackTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -141,7 +141,7 @@
                                                     <action selector="sliderAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="Evg-6b-y45"/>
                                                 </connections>
                                             </slider>
-                                            <slider opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="rAp-hT-eAg">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="rAp-hT-eAg">
                                                 <rect key="frame" x="-2" y="108" width="122" height="35"/>
                                                 <color key="minimumTrackTintColor" systemColor="systemBlueColor"/>
                                                 <color key="maximumTrackTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -165,7 +165,7 @@
                                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Jcr-Kk-W93"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.50" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mfn-EE-RWS">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.50" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mfn-EE-RWS">
                                                 <rect key="frame" x="0.0" y="54" width="50" height="34"/>
                                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -175,7 +175,7 @@
                                                     <outlet property="delegate" destination="BYZ-38-t0r" id="MxJ-0i-jFZ"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.50" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Leo-fe-grW">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.50" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Leo-fe-grW">
                                                 <rect key="frame" x="0.0" y="108" width="50" height="34"/>
                                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -224,16 +224,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="QOK-z6-6Ur"/>
                     <connections>
+                        <outlet property="blueLabel" destination="mA4-UV-ptE" id="zhK-OL-UnJ"/>
+                        <outlet property="blueSlider" destination="rAp-hT-eAg" id="0tq-0z-Uz4"/>
+                        <outlet property="blueTextField" destination="Leo-fe-grW" id="hhf-DI-s4p"/>
                         <outlet property="colorView" destination="FHa-r7-RPj" id="g4o-kD-mMz"/>
-                        <outletCollection property="labels" destination="QXX-0p-tCC" collectionClass="NSMutableArray" id="f17-3B-AWW"/>
-                        <outletCollection property="labels" destination="drg-GL-PeY" collectionClass="NSMutableArray" id="mCO-FA-Pk9"/>
-                        <outletCollection property="labels" destination="mA4-UV-ptE" collectionClass="NSMutableArray" id="DRz-qo-9iS"/>
-                        <outletCollection property="sliders" destination="gQo-sE-sHH" collectionClass="NSMutableArray" id="CnI-JE-aFJ"/>
-                        <outletCollection property="sliders" destination="IXk-Hl-dIY" collectionClass="NSMutableArray" id="VoO-G4-iMF"/>
-                        <outletCollection property="sliders" destination="rAp-hT-eAg" collectionClass="NSMutableArray" id="7OU-Hl-O1Y"/>
-                        <outletCollection property="textFields" destination="SLj-2p-iGG" collectionClass="NSMutableArray" id="4lK-EY-dkO"/>
-                        <outletCollection property="textFields" destination="mfn-EE-RWS" collectionClass="NSMutableArray" id="oaL-ef-vqe"/>
-                        <outletCollection property="textFields" destination="Leo-fe-grW" collectionClass="NSMutableArray" id="kIn-DJ-L7d"/>
+                        <outlet property="greenLabel" destination="drg-GL-PeY" id="jV7-tn-VAn"/>
+                        <outlet property="greenSlider" destination="IXk-Hl-dIY" id="9b5-Ln-fgT"/>
+                        <outlet property="greenTextField" destination="mfn-EE-RWS" id="5dx-kv-pSt"/>
+                        <outlet property="redLabel" destination="QXX-0p-tCC" id="R31-JW-YZ9"/>
+                        <outlet property="redSlider" destination="gQo-sE-sHH" id="0cV-KZ-BQo"/>
+                        <outlet property="redTextField" destination="SLj-2p-iGG" id="yj3-I3-hbE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
